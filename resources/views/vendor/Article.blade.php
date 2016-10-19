@@ -1,0 +1,3 @@
+<li>
+	{{ $item->content }}
+</li>

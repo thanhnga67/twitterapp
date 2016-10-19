@@ -6,7 +6,16 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    You are logged in!
+                    @include('articleForm')
+                </div>
+                <div>
+                    @if(isset($articles))
+                        @foreach ($articles as $item)
+                            <li>
+                                {{ $item->content }}
+                            </li>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
