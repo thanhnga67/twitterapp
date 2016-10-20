@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'ArticleController@index');
 
-Route::post ( '/createArticle', 'ArticleController@create' );
+Route::post ( '/createArticle', 'ArticleController@createArticle' );
+
+Route::post ('/loadMore', 'ArticleController@loadMore');

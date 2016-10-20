@@ -15,7 +15,8 @@ return [
         'reme' => '保存する',
         'sendlink' => '送信',
         'registerlink' => 'ユーザー登録はこちらから',
-        'tweet' => 'ツイート'
+        'tweet' => 'ツイート',
+        'loadmore'=> 'もっと見る'
     ],
 
 ];

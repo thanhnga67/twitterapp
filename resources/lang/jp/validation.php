@@ -115,7 +115,7 @@ return [
     'attributes' => [
         'password' => 'パスワード',
         'email' => 'メールアドレス',
-        'confirmed_password' => '再パスワード'
+        'confirmed_password' => '再パスワード',
     ],
 
 ];
