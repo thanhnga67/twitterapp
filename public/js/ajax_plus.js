@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#article-form').on('submit', function(){
+    $('#btn-post').on('click', function(){
         $.ajax({
             url: 'createArticle',
             type: "post",
@@ -8,10 +8,9 @@ $(document).ready(function(){
                 $('#list-articles').prepend(data['uparticle']);
             },
             error: function(){
-                alert("ツイートは140文以内です。");
+                alert('ツイートは140文以内です。');
             }
-        });
-        event.preventDefault();      
+        });     
     });
 });
 

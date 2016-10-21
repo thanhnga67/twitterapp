@@ -16,7 +16,8 @@ return [
         'sendlink' => '送信',
         'registerlink' => 'ユーザー登録はこちらから',
         'tweet' => 'ツイート',
-        'loadmore'=> 'もっと見る'
+        'loadmore'=> 'もっと見る',
+        'justnow' => 'たった今'
     ],
 
 ];

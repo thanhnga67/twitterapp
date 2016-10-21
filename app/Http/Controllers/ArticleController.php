@@ -35,7 +35,7 @@ class ArticleController extends Controller
         );
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
-                return Response::json(array('errors' => $validator));
+                return Response::view('error', array(), 411);
             }  
         $article = new Article();
         $data = $request->all();

@@ -10,7 +10,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary" id="btn-post">
+                        <button type="button" class="btn btn-primary" id="btn-post">
                             {{ trans('app.home.tweet') }}
                         </button>
                     </div>
