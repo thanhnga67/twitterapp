@@ -4,6 +4,7 @@
             <form id="article-form" class="form-horizontal" role="form" method="POST" action="{{ url('createArticle') }}">
                 {{ csrf_field() }}
                 <div class="col-md-6">
+                    <div id="form-errors"></div>
                     <textarea type="text" class="form-control" id="content" name="content"
                         placeholder="いまどうしてる？" required></textarea>
                     <p class="error text-center alert alert-danger hidden"></p>

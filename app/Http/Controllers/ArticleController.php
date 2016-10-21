@@ -17,9 +17,9 @@ class ArticleController extends Controller
         $this->middleware('auth');
     }
     
-    protected function index(Request $request)
+    public function index(Request $request)
     {
-        $articles = Auth::user()->articles()->orderBy('created_at', 'DESC')->paginate(config('constant.page_number'));
+        $articles = Auth::user()->articles()->orderBy('created_at', 'DESC')->paginate(config('constant.block_tweet'));
         if($request->ajax()){
             $flag = count($articles);
             $downarticle = view('Articles', array('articles' => $articles))->render();
@@ -28,15 +28,15 @@ class ArticleController extends Controller
         return view('home', ['articles' => $articles]);
     }
 
-    protected function createArticle(Request $request)
+    public function createArticle(Request $request)
     {
         $rules = array(
             'content' => 'required|max:140',
         );
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
-                return Response::view('error', array(), 411);
-            }  
+            return response()->json(array('errors' => $validator->getMessageBag()->toArray()), 422);
+        }
         $article = new Article();
         $data = $request->all();
         $article->content = $data['content'];

@@ -1,4 +1,4 @@
 <?php
 return [
-    'page_number' => '10',
+    'block_tweet' => '10',
 ];
