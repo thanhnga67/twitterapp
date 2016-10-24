@@ -68,11 +68,11 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/ajax_plus.js"></script>
 </body>
 </html>
