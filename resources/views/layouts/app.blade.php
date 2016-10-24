@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <!-- Scripts -->
     <script>
@@ -34,11 +35,12 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <a href="{{ url('/') }}" class="fa fa-twitter" style="font-size:400%;color:#1da1f2"></a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ url('/home') }}" class="glyphicon glyphicon-pencil" style="font-size:400%;color:#1da1f2"></a></li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">{{ trans('app.home.login') }}</a></li>
