@@ -30,7 +30,6 @@ class LoginTest extends TestCase
             'password' => "secret"
         ])
         ->seePageIs('/home');
-
 	}
 
     public function testLoginWithInvalidEmail()
