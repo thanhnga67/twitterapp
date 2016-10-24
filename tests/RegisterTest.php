@@ -12,6 +12,8 @@ class RegisterTest extends TestCase
      *
      * @return void
      */
+    use DatabaseTransactions;
+
     public function testRegisterSuccessfully()
     {
         $user = factory(App\User::class)->make();
@@ -22,8 +24,7 @@ class RegisterTest extends TestCase
             'password' => "secret",
             'password_confirmation' => "secret"
             ])
-            ->seePageIs('/home')
-            ->see('You are logged in!');
+            ->seePageIs('/home');
     }
 
     public function testRegisterWithuniqueEmail()
