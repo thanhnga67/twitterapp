@@ -1,5 +1,5 @@
 @if(isset($articles))
-    @foreach($articles as $article)
-    	@include('Article')
-    @endforeach
+  @foreach($articles as $article)
+    @include('Article')
+  @endforeach
 @endif

@@ -11,6 +11,8 @@ class LoginTest extends TestCase
      *
      * @return void
      */
+    use DatabaseTransactions;
+
     public function testLoginView()
     {
         $this->visit('/login')
@@ -27,9 +29,7 @@ class LoginTest extends TestCase
             'email' => $user->email,
             'password' => "secret"
         ])
-        ->seePageIs('/home')
-        ->see('You are logged in!');
-
+        ->seePageIs('/home');
 	}
 
     public function testLoginWithInvalidEmail()

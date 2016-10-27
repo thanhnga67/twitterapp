@@ -41,5 +41,8 @@ function loadMore(page){
       }
       $("#list-articles").append(data.downarticle);
     }
+    error: function(jqXHR, ajaxOptions, thrownError) {
+      alert(trans('home.errors.not_respond'));
+    }
   });
 }

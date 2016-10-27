@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/plus.css" type="text/css">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <title>Twitter</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">{{ trans('app.home.login') }}</a>
-                    <a href="{{ url('/register') }}">{{ trans('app.home.register') }}</a>
-                </div>
-            @endif
-            <div class="content">
-            
-            </div>
+@extends('layouts.app')
+@section('content')
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="abc">
+          <h1>Twitterへようこそ</h1>
+          <br>
+          <h2>「いま」起きていることを見つけよう。</h2>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          @if (Auth::guest())
+            <a href="{{ url('/register') }}" class="btn btn-primary center-block">{{ trans('app.home.register') }}</a><br>
+            <a href="{{ url('/login') }}" class="btn btn-primary center-block">{{ trans('app.home.login') }}</a>
+          @endif
+          <br>
+          <br>
         </div>
-    </body>
-</html>
+      </div>
+    </div>
+  </div>
+@endsection

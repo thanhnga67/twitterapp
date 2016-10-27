@@ -4,16 +4,21 @@ html, body {
     color: #636b6f;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
-    height: 100vh;
     margin: 0;
 }
 
-.container {
-    background: url('TWITTER-CONVERSATION.jpg');
+h1 {
+    font-size: 120px;
+    margin-left: 10px;
+}
+
+h2 {
+    font-size: 50px;
+    margin-right: 5px;
 }
 
 .full-height {
-    height: 100vh;
+    height: 100%;
 }
 
 .flex-center {
@@ -52,4 +57,21 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+#twitter-icon {
+    font-size:400%;
+    color:#1da1f2;
+}
+
+#tweet {
+    font-size:400%;
+    color:#1da1f2;
+}
+
+.abc {
+    background-image: url("../nice.jpg");
+    background-size:100%;
+    background-repeat: no-repeat;
+    display:block;
 }

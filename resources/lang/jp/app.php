@@ -19,5 +19,8 @@ return [
         'loadmore'=> 'もっと見る',
         'justnow' => 'たった今'
     ],
+    'errors' => [
+        'not_respond' => 'エラーがあります。'
+    ],
 
 ];
