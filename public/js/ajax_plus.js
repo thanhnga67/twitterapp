@@ -3,9 +3,10 @@ $(document).ready(function(){
     $.ajax({
       url: 'createArticle',
       type: "post",
-      data: {'content':$('#content').val(), '_token': $('input[name=_token]').val()},
+      data: {'content':$('#content').val().replace("&#10;", "\n"), '_token': $('input[name=_token]').val()},
       success: function(data){
         $('#list-articles').prepend(data['uparticle']);
+        $('#article-form textarea').val(''); 
       },
       error: function(data){
         var response = data.responseJSON;
@@ -15,34 +16,33 @@ $(document).ready(function(){
           errorString += '<li>' + value + '</li>';
         });
         errorString += '</ul></div>';
-        $( '#form-errors' ).html( errorsHtml += errorString ); 
+        $( '#form-errors' ).html( errorsHtml += errorString );
+        $("div.alert").fadeIn( 300 ).delay( 3000 ).fadeOut( 400 );
       }
     });
   });
 });
 
-var page = 1;
 $("#load-more").click(function (){
-  page++;
-  loadMore(page);
+  loadMore();
 });
 
-function loadMore(page){
+function loadMore(){
+  let getPageUrl = 'home/nextPage';
+  console.log($('.tweet').length);
   $.ajax({
-    url: '?page=' + page,
-    type: 'get',
-    beforeSend: function()
-    {
-      $('#load-more').show();
+    type : 'get',
+    url : getPageUrl,
+    data : {
+      offset : $('.tweet').length,
     },
+    dataType : 'json',
+    encode : true,
     success: function(data){
-      if(data.flag  < 10){
+      $("#list-articles").append(data.downarticle);
+      if (data.flag < 10) {
         $('#load-more').hide();
       }
-      $("#list-articles").append(data.downarticle);
-    }
-    error: function(jqXHR, ajaxOptions, thrownError) {
-      alert(trans('home.errors.not_respond'));
     }
   });
 }

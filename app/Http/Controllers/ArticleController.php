@@ -19,13 +19,13 @@ class ArticleController extends Controller
     
     public function index(Request $request)
     {
-        $articles = Auth::user()->articles()->orderBy('created_at', 'DESC')->paginate(config('constant.block_tweet'));
+        $total = Auth::user()->articles()->count();
+        $articles = Auth::user()->articles()->orderBy('created_at', 'desc')->take(config('constant.block_tweet'))->get();
         if($request->ajax()){
-            $flag = count($articles);
             $downarticle = view('Articles', array('articles' => $articles))->render();
-            return response()->json(array('downarticle' => $downarticle, 'flag' => $flag));
+            return response()->json(array('downarticle' => $downarticle));
         }
-        return view('home', ['articles' => $articles]);
+        return view('home', ['articles' => $articles, 'total' => $total]);
     }
 
     public function createArticle(Request $request)
@@ -45,5 +45,16 @@ class ArticleController extends Controller
         $articles = Auth::user()->articles;
         $uparticle = view('Article')->with(['article' => $article])->render();
         return response()->json(['uparticle' => $uparticle, 'article' => $article]);
+    }
+
+    public function getNextPage(Request $request)
+    {
+        if($request->ajax()){
+            $offset = $request['offset'];
+            $articles = Auth::user()->articles()->orderBy('created_at', 'desc')->take(config('constant.block_tweet'))->skip($offset)->get();
+            $flag = count(Auth::user()->articles()) - count($offset);
+            $downarticle = view('Articles', array('articles' => $articles))->render();
+            return response()->json(array('downarticle' => $downarticle, 'flag' => $flag));
+        }
     }
 }

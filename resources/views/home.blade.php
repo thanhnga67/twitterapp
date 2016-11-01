@@ -14,7 +14,7 @@
           </ul>
         </div>
         <div class="center-block">
-          @if($articles->count() >= config('constant.block_tweet'))
+          @if($articles->count() >= config('constant.block_tweet') && $total != 10)
             <button id="load-more" class="btn btn-success center-block">{{ trans('app.home.loadmore')}}</button>
           @endif
         </div>

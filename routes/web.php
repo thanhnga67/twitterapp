@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@guest');
+
 
 Auth::routes();
 
 Route::get('/home', 'ArticleController@index');
-
+Route::get('home/nextPage', 'ArticleController@getNextPage');
 Route::post('/createArticle', 'ArticleController@createArticle' );
 

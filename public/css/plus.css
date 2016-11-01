@@ -7,14 +7,8 @@ html, body {
     margin: 0;
 }
 
-h1 {
-    font-size: 120px;
-    margin-left: 10px;
-}
-
-h2 {
-    font-size: 50px;
-    margin-right: 5px;
+p { 
+    word-wrap:break-word;
 }
 
 .full-height {
@@ -65,13 +59,27 @@ h2 {
 }
 
 #tweet {
-    font-size:400%;
+    font-size:350%;
     color:#1da1f2;
 }
 
-.abc {
-    background-image: url("../nice.jpg");
-    background-size:100%;
-    background-repeat: no-repeat;
-    display:block;
+.welcome {
+    background-color: #5bc0de;
+    text-align: center;
+}
+
+.welcomeText {
+    font-size: 70px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.nowText {
+    font-size: 30px;
+    margin-right: 5px;
+    margin-bottom: 60px;
+}
+
+.custom-btn {
+    margin-bottom: 60px;
 }

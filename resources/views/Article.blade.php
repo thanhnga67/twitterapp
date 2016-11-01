@@ -14,8 +14,8 @@
     </div>
   </div>
   <div class="col-xs-10">
-    <p>
-      {{ $article->content }}
+    <p class="tweet">
+      {!! nl2br(e($article->content)) !!}
     <p>
   </div>
 </li>
