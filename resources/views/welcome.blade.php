@@ -1,26 +1,17 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="abc">
-          <h1>Twitterへようこそ</h1>
-          <br>
-          <h2>「いま」起きていることを見つけよう。</h2>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          @if (Auth::guest())
-            <a href="{{ url('/register') }}" class="btn btn-primary center-block">{{ trans('app.home.register') }}</a><br>
-            <a href="{{ url('/login') }}" class="btn btn-primary center-block">{{ trans('app.home.login') }}</a>
-          @endif
-          <br>
-          <br>
-        </div>
-      </div>
+<div class="containe">
+  <div class="content">
+    <h1 class="welcomeText">Twitterへようこそ</h1>
+    <h2 class="nowText">「いま」起きていることを見つけよう。</h2>
+    @if (Auth::guest())
+    <div class="custom-btn">
+      <a href="{{ url('/register') }}" class="btn btn-default center btn-lg">{{ trans('app.home.register') }}</a>
     </div>
+    <div>
+      <a href="{{ url('/login') }}" class="btn btn-info center btn-lg">{{ trans('app.home.login') }}</a>
+    </div>
+    @endif
+  </div>
   </div>
 @endsection
